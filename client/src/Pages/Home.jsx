@@ -3,6 +3,7 @@ import Header from '../Components/Header.jsx'
 import Speciality from '../Components/Speciality.jsx'
 import TopDoctors from '../Components/TopDoctors.jsx'
 import Banner from '../Components/Banner.jsx'
+import Footer from '../Components/Footer.jsx'
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
        <Speciality />
        <TopDoctors />
        <Banner />
+       <Footer />
         
     </div>
   )
