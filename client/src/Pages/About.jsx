@@ -38,7 +38,7 @@ const About = () => {
           <p>Tailored recommendations and reminders to helps you stay on your health </p>
         </div>
       </div>
-      <Footer />
+      
     </div>
   )
 }
