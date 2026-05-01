@@ -4,6 +4,7 @@ import cors from 'cors'
 import 'dotenv/config'
 import { config } from 'dotenv'
 import connectCloudinary from './config/cloudinary.js'
+import adminRouter from './routes/admin.route.js'
 
 
 // app config
@@ -18,6 +19,9 @@ app.use(express.json())
 app.use(cors())
 
 // api endpoint 
+app.use('/api/admin',adminRouter)
+
+// dummy api 
 app.get('/',(req,res)=>{
     res.send('api Working')
 })
