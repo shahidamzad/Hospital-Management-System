@@ -10,8 +10,8 @@ import adminRouter from './routes/admin.route.js'
 // app config
 const app = express() 
 const port = process.env.PORT || 4000
-ConnectDb()
-connectCloudinary()
+ConnectDb();
+connectCloudinary();
 
 
 // middleware 
@@ -26,5 +26,5 @@ app.get('/',(req,res)=>{
     res.send('api Working')
 })
 
-app.listen(port,()=> console.log('server is running',port))
+app.listen(port,()=> console.log('server is running',port ))
 
