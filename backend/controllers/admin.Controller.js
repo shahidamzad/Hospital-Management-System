@@ -20,17 +20,17 @@ export const addDoctor = async (req, res) => {
         // checking for  all data  to add doctor
 
         if (!name || !email || !password || !speciality || !fees || !about || !degree || !experience || !address) {
-            return res.json({ success: false, Message: "missing deatials" })
+            return res.json({ success: false, message: "missing deatials" })
         }
 
         // validating email formate 
 
         if (!validator.isEmail(email)) {
-            return res.json({ success: false, Message: "Please enter valid email" })
+            return res.json({ success: false, message: "Please enter valid email" })
         }
         // validating strong password 
         if (password.length > 8) {
-            return res.json({ success: false, Message: "Please enter a strong password" })
+            return res.json({ success: false, message: "Please enter a strong password" })
         }
 
         // hashing password 
@@ -62,11 +62,11 @@ export const addDoctor = async (req, res) => {
         const newDoctor = new doctorModel(doctorData)
         await newDoctor.save()
 
-        res.json({ success: true, Message: "Doctor added" })
+        res.json({ success: true, message: "Doctor added" })
 
     } catch (error) {
         console.log(error);
-        res.json({ success: false, Message: error.message })
+        res.json({ success: false, message: error.message })
     }
 }
 
@@ -86,6 +86,6 @@ export const adminLogin = async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.json({ success: false, Message: error.message })
+        res.json({ success: false, message: error.message })
     }
 }
