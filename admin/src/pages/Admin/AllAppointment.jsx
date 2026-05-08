@@ -6,4 +6,4 @@ const AllAppointment = () => {
   )
 }
 
-export default AllAppointment
+export default AllAppointment;
