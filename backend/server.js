@@ -5,6 +5,7 @@ import 'dotenv/config'
 import { config } from 'dotenv'
 import connectCloudinary from './config/cloudinary.js'
 import adminRouter from './routes/admin.route.js'
+import doctorRouter from './routes/doctor.route.js'
 
 
 // app config
@@ -20,6 +21,7 @@ app.use(cors())
 
 // api endpoint 
 app.use('/api/admin',adminRouter)
+app.use('/api/doctor', doctorRouter)
 
 // dummy api 
 app.get('/',(req,res)=>{
