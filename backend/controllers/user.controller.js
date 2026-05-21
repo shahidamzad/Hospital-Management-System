@@ -85,11 +85,22 @@ export const userLogin = async (req, res) => {
         }else{
             res.json({success: false, message: "Invalid credentials"   })
         }
-        
-
-
     } catch (error) {
         console.log(error)
         res.json({success: false,message: error.message})
     }
 }
+ //  api to get user profile data 
+
+ export const getUserProfile = async (req , res)=>{
+    try {
+        const { userId } = req.body
+        const userData = await userModel.findById(userId).select('-password')
+
+        res.json({success:true , userData})
+
+    } catch (error) {
+        console.log(error)
+        res.json({success: false,message: error.message})
+    }
+ }
