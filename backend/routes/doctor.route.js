@@ -8,4 +8,5 @@ const doctorRouter = express.Router();
 doctorRouter.post('/list' , doctorList)
 
 
+
 export default doctorRouter ;

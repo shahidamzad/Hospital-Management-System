@@ -2,7 +2,7 @@ import validator from 'validator';
 import bcrypt from 'bcrypt';
 import { v2 as cloudinary } from 'cloudinary';
 import doctorModel from '../models/doctorModel.js'
-import jwt from'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 
 
 
@@ -74,14 +74,14 @@ export const addDoctor = async (req, res) => {
 
 export const adminLogin = async (req, res) => {
     try {
-        const {email,password} = req.body;
+        const { email, password } = req.body;
 
         if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
-            const token = jwt.sign(email+password , process.env.JWT_SECRET)
-            res.json({success:true, token})
-            
-        }else{
-            res.json({success:false , message:"Invalid Credential "})
+            const token = jwt.sign(email + password, process.env.JWT_SECRET)
+            res.json({ success: true, token })
+
+        } else {
+            res.json({ success: false, message: "Invalid Credential " })
         }
 
     } catch (error) {
@@ -92,11 +92,11 @@ export const adminLogin = async (req, res) => {
 
 // api to get all daoctor list for admin panel
 
-export const Alldoctors = async (req, res)=>{
+export const Alldoctors = async (req, res) => {
     try {
-        const doctors  = await doctorModel.find({}).select('-password')
-        res.json({success:true , doctors})
-        
+        const doctors = await doctorModel.find({}).select('-password')
+        res.json({ success: true, doctors })
+
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: error.message })
