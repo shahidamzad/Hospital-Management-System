@@ -94,11 +94,36 @@ export const userLogin = async (req, res) => {
 
  export const getUserProfile = async (req , res)=>{
     try {
-        const { userId } = req.body
+        const  userId  = req.userId
+        console.log(userId)
         const userData = await userModel.findById(userId).select('-password')
 
         res.json({success:true , userData})
 
+    } catch (error) {
+        console.log(error)
+        res.json({success: false,message: error.message})
+    }
+ }
+
+ // api to upadate user datails 
+ export const updateUserProfile = async (req , res)=>{
+    try {
+
+        const { userId , name , phone, adrress , dob ,gender } = req.body;
+        const imageFile = req.file ;
+
+        if (!name || !phone || ! dob || !gender) {
+            return res.json({success: false , message: "missing details "})
+
+        }
+
+        await userModel.findByIdAndUpdate(userId,{name , phone , address:JSON.parse(address),dob , gender })
+
+        if (imageFile) {
+            
+        }
+        
     } catch (error) {
         console.log(error)
         res.json({success: false,message: error.message})
