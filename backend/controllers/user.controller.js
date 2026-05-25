@@ -4,6 +4,7 @@ import validator from 'validator'
 import userModel from '../models/userModel.js'
 import jwt from 'JsonWebToken'
 import { v2 as cloudinary } from 'cloudinary';
+import doctorModel from '../models/doctorModel.js';
 
 
 
@@ -73,7 +74,7 @@ export const userLogin = async (req, res) => {
         // checking user exits 
         const user = await userModel.findOne({ email })
         if (!user) {
-            return res.json({success: false, message: "User does not exist"})
+            return res.json({ success: false, message: "User does not exist" })
         }
 
         // compare password
@@ -81,35 +82,35 @@ export const userLogin = async (req, res) => {
         const isMatch = await bcrypt.compare(password, user.password)
 
         if (isMatch) {
-            const token = jwt.sign({id:user._id},process.env.JWT_SECRET)
-               res.json({success: true,token})
-        }else{
-            res.json({success: false, message: "Invalid credentials"   })
+            const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
+            res.json({ success: true, token })
+        } else {
+            res.json({ success: false, message: "Invalid credentials" })
         }
     } catch (error) {
         console.log(error)
-        res.json({success: false,message: error.message})
+        res.json({ success: false, message: error.message })
     }
 }
- //  api to get user profile data 
+//  api to get user profile data 
 
- export const getUserProfile = async (req , res)=>{
+export const getUserProfile = async (req, res) => {
     try {
-        const  userId  = req.userId
+        const userId = req.userId
         console.log(userId)
         const userData = await userModel.findById(userId).select('-password')
 
-        res.json({success:true , userData})
+        res.json({ success: true, userData })
 
     } catch (error) {
         console.log(error)
-        res.json({success: false,message: error.message})
+        res.json({ success: false, message: error.message })
     }
- }
+}
 
- // api to upadate user datails 
+// api to upadate user datails 
 
-export const updateUserProfile = async (req , res) => {
+export const updateUserProfile = async (req, res) => {
 
     try {
         const userId = req.userId;
@@ -174,4 +175,78 @@ export const updateUserProfile = async (req , res) => {
 
     }
 
+}
+
+
+// Api to book appointment
+
+export const bookAppointment = async (req, res) => {
+    try {
+        const userId = req.userId;
+
+        const { docId, slotTime, slotDate } = req.body
+
+        const docData = await doctorModel.findById(docId).select('-password')
+        if (!docData.available) {
+            return res.json({
+                success: false,
+                message: 'Doctor not available'
+            })
+        }
+
+        let slots_booked = docData.slots_booked
+
+        // checking for slot availability
+
+        if (slots_booked[slotDate]) {
+
+            if (slots_booked[slotDate].includes(slotTime)) {
+
+                return res.json({
+                    success: false,
+                    message: 'Slot not available'
+                })
+
+            } else {
+                  slots_booked[slotDate].push(slotTime)
+            }
+
+        } else {
+
+            slots_booked[slotDate] = []
+            slots_booked[slotDate].push(slotTime)
+
+        }
+
+        const userData = await userModel.findById(userId).select('-password')
+
+        delete docData.slots_booked
+
+        const appointmentData = {
+            userId,
+            docId,
+            docData ,
+            userData,
+            amount : docData.fees,
+            slotDate,
+            slotTime,
+            date : Date.now()
+
+        }
+        const newAppointment = new appointmentModel(appointmentData)
+        await newAppointment.save()
+        // save new slots data in docData
+
+        await doctorModel.findByIdAndUpdate(docId,{ slots_booked })
+
+        res.json({success:true , message : "appoinment booked"})
+
+    } catch (error) {
+        console.log(error);
+
+        res.json({
+            success: false,
+            message: error.message
+        });
+    }
 }
