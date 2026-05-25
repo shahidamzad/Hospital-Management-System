@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt'
 import validator from 'validator'
 import userModel from '../models/userModel.js'
 import jwt from 'JsonWebToken'
+import { v2 as cloudinary } from 'cloudinary';
 
 
 
@@ -107,25 +108,70 @@ export const userLogin = async (req, res) => {
  }
 
  // api to upadate user datails 
- export const updateUserProfile = async (req , res)=>{
+
+export const updateUserProfile = async (req , res) => {
+
     try {
+        const userId = req.userId;
 
-        const { userId , name , phone, adrress , dob ,gender } = req.body;
-        const imageFile = req.file ;
+        const { name, phone, address, dob, gender } = req.body;
 
-        if (!name || !phone || ! dob || !gender) {
-            return res.json({success: false , message: "missing details "})
+        const imageFile = req.file;
+
+        if (!name || !phone || !dob || !gender) {
+
+            return res.json({
+                success: false,
+                message: "missing details"
+            });
 
         }
 
-        await userModel.findByIdAndUpdate(userId,{name , phone , address:JSON.parse(address),dob , gender })
+        const updatedUser = await userModel.findByIdAndUpdate(
+            userId,
+            {
+                name,
+                phone,
+                address: JSON.parse(address),
+                dob,
+                gender
+            },
+            { returnDocument: 'after' }
+        );
+
+        console.log(updatedUser);
 
         if (imageFile) {
-            
+
+            // upload image to cloudinary
+
+            const imageUpload = await cloudinary.uploader.upload(
+                imageFile.path,
+                { resource_type: 'image' }
+            );
+
+            const imageURL = imageUpload.secure_url;
+
+            await userModel.findByIdAndUpdate(userId, {
+                image: imageURL
+            });
+
         }
-        
+
+        res.json({
+            success: true,
+            message: "Profile Updated"
+        });
+
     } catch (error) {
-        console.log(error)
-        res.json({success: false,message: error.message})
+
+        console.log(error);
+
+        res.json({
+            success: false,
+            message: error.message
+        });
+
     }
- }
+
+}
