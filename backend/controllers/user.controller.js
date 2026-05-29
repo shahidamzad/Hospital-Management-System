@@ -5,6 +5,7 @@ import userModel from '../models/userModel.js'
 import jwt from 'JsonWebToken'
 import { v2 as cloudinary } from 'cloudinary';
 import doctorModel from '../models/doctorModel.js';
+import appointmentModel from '../models/appointmentModel.js';
 
 
 
@@ -250,3 +251,19 @@ export const bookAppointment = async (req, res) => {
         });
     }
 }
+
+
+// Api to get user appointment for frontend  my -appointment page 
+
+export const ListAppointment = async(req ,res) => {
+    try {
+        
+    } catch (error) {
+         console.log(error);
+        res.json({
+            success: false,
+            message: error.message
+        });
+    }
+}
+
