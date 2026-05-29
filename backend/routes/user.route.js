@@ -11,7 +11,7 @@ userRouter.post('/register' , userRegister);
 userRouter.post('/login' ,  userLogin);
 userRouter.get('/get-profile' , authUser , getUserProfile);
 userRouter.post('/update-profile' ,upload.single('image'), authUser , updateUserProfile)
-userRouter.post('/user-Appointment', bookAppointment)
+userRouter.post('/book-Appointment', authUser ,bookAppointment)
 
 
 export default userRouter ;

@@ -7,7 +7,7 @@ import RelatedDoctors from '../Components/RelatedDoctors';
 const Appointment = () => {
 
   const { docId } = useParams();
-  const { doctors , currencySymbol } = useContext(AppContext);
+  const { doctors , currencySymbol, backendUrl ,token , getDoctorsData } = useContext(AppContext);
 
   const daysOfWeek = ['SUN','MON','TUE','WES','THU','FRI','SAT']
 
@@ -62,6 +62,10 @@ const Appointment = () => {
       }
       setDocSlots(prev=>([...prev,timeSlots ]))
     }
+  }
+
+  const bookAppointment = ()=>{
+    
   }
   
 

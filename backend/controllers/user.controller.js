@@ -97,7 +97,7 @@ export const userLogin = async (req, res) => {
 export const getUserProfile = async (req, res) => {
     try {
         const userId = req.userId
-        console.log(userId)
+        
         const userData = await userModel.findById(userId).select('-password')
 
         res.json({ success: true, userData })
