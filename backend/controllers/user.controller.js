@@ -337,4 +337,4 @@ export const paymentRazorpay = async (req, res) =>{
         receipts : appointmentId ,
 
     }
-}
+};
