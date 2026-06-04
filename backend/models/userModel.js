@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     grender : {type:String , default:"not selected"},
     dob : {type:String , default:"not selected"},
     phone:{type:String , default:"000000 00000"}
-})
+});
 
 const userModel = mongoose.model.user || mongoose.model('user', userSchema);
 

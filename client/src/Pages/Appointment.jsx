@@ -25,7 +25,11 @@ const Appointment = () => {
     console.log(docInfo);
   }
   const getAvailableSlots = async () => {
-    setDocSlots([])
+    if(!docInfo){
+      return setDocSlots([])
+    }
+    
+  
 
     // getting current date 
     let today = new Date()
@@ -57,7 +61,7 @@ const Appointment = () => {
         let day = currentDate.getDate();
         let month = currentDate.getMonth() + 1;
         let year = currentDate.getFullYear();
-        const slotDate = day + "_" + month + "_" + year;
+        const slotDate = day + "-" + month + "-" + year;
         const slotTime = formattedTime;
 
         const isSlotAvailable = docInfo.slots_booked[slotDate] && docInfo.slots_booked[slotDate].includes(slotTime) ? false : true
@@ -82,6 +86,7 @@ const Appointment = () => {
     if (!token) {
       toast.warn('login to book Appointment')
       navigate('/login');
+      return
     }
 
     try {
@@ -91,7 +96,7 @@ const Appointment = () => {
       let month = date.getMonth() + 1;
       let year = date.getFullYear();
 
-      const slotDate = day + "_" + month + "_" + year
+      const slotDate = day + "-" + month + "-" + year
 
 
       const { data } = await axios.post(backendUrl + '/api/user/book-appointment', { docId, slotDate, slotTime }, { headers: { token } })
@@ -119,7 +124,9 @@ const Appointment = () => {
   }, [doctors, docId]);
 
   useEffect(() => {
+    if(docInfo){
     getAvailableSlots()
+    }
   }, [docInfo])
 
 

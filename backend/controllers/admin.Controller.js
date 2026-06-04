@@ -1,8 +1,8 @@
 import validator from 'validator';
 import bcrypt from 'bcrypt';
 import { v2 as cloudinary } from 'cloudinary';
-import doctorModel from '../models/doctorModel.js'
-import jwt from 'jsonwebtoken'
+import doctorModel from '../models/doctorModel.js';
+import jwt from 'jsonwebtoken';
 
 
 
@@ -68,7 +68,7 @@ export const addDoctor = async (req, res) => {
         console.log(error);
         res.json({ success: false, message: error.message })
     }
-}
+};
 
 // Admin login api 
 
@@ -88,7 +88,7 @@ export const adminLogin = async (req, res) => {
         console.log(error);
         res.json({ success: false, message: error.message })
     }
-}
+};
 
 // api to get all daoctor list for admin panel
 
@@ -101,4 +101,4 @@ export const Alldoctors = async (req, res) => {
         console.log(error);
         res.json({ success: false, message: error.message })
     }
-}
+};

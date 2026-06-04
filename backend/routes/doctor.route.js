@@ -5,7 +5,7 @@ import { doctorList } from '../controllers/doctor.Controller.js';
 const doctorRouter = express.Router();
 
 
-doctorRouter.post('/list' , doctorList)
+doctorRouter.post('/list' , doctorList);
 
 
 

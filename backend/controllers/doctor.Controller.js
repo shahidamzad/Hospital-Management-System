@@ -10,7 +10,7 @@ export const changeAvailablity = async (req , res) => {
         console.log(error);
         res.json({ success: false, message: error.message })
     }
-}
+};
 
 
 export const doctorList = async (req , res )=>{
@@ -24,4 +24,4 @@ export const doctorList = async (req , res )=>{
         res.json({ success: false, message: error.message })
     }
 
-}
+};

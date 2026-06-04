@@ -10,7 +10,7 @@ const adminRouter = express.Router();
 adminRouter.post('/add-doctor',authAdmin,upload.single('image'),addDoctor);
 adminRouter.post('/login' ,adminLogin);
 adminRouter.post('/all-doctors',authAdmin ,  Alldoctors);
-adminRouter.post('/change-availability',authAdmin ,changeAvailablity)
+adminRouter.post('/change-availability',authAdmin ,changeAvailablity);
 
 
 
