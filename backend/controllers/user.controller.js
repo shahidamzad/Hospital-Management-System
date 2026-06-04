@@ -140,10 +140,10 @@ export const updateUserProfile = async (req, res) => {
                 dob,
                 gender
             },
-            { returnDocument: 'after' }
+            { new: true }
         );
 
-        console.log(updatedUser);
+       
 
         if (imageFile) {
 
