@@ -31,7 +31,7 @@ export const addDoctor = async (req, res) => {
             return res.json({ success: false, message: "Please enter valid email" })
         }
         // validating strong password 
-        if (password.length > 8) {
+        if (password.length < 8) {
             return res.json({ success: false, message: "Please enter a strong password" })
         }
 

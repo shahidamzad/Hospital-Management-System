@@ -137,7 +137,7 @@ const MyAppointments = () => {
 
   return (
     <div>
-      <p className='pb-3 mt-12 font-medium text-zinc-700 border-b'>My appointment</p>
+      <p className='pb-3 mt-12 font-medium text-zinc-700 border-b'>My Appointments</p>
 
       {showRefundPopup && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
@@ -161,6 +161,11 @@ const MyAppointments = () => {
         {appointments.map((item, index) => {
           const address = getAddress(item.docData.address);
 
+          // Single source of truth for status
+          const isCompleted = item.isCompleted
+          const isCancelled = item.cancelled
+          const isPending = !isCompleted && !isCancelled
+
           return (
             <div className='grid grid-cols-[1fr_2fr] gap-4 sm:flex sm:gap-6 py-2 border-b' key={index}>
 
@@ -179,23 +184,46 @@ const MyAppointments = () => {
                 </p>
               </div>
 
-              <div className='flex flex-col gap-2 justify-end'>
+              <div className='flex flex-col gap-2 justify-end items-center'>
 
-                {!item.cancelled && item.payment && (
+                {/* Completed */}
+                {isCompleted && (
+                  <button className='sm:min-w-48 py-2 border border-green-500 rounded text-green-600'>
+                    Appointment Completed
+                  </button>
+                )}
+
+                {/* Cancelled */}
+                {isCancelled && (
+                  <div className='text-sm text-center sm:min-w-48'>
+                    <button className='w-full items-center py-2 border border-red-500 rounded text-red-600'>
+                      Appointment Cancelled
+                    </button>
+                    {item.refund && (
+                      <p className='text-xs text-green-600 mt-1'>
+                        Refund of ₹{item.refund.amount} initiated • 3 business days
+                      </p>
+                    )}
+                  </div>
+                )}
+
+                {/* Pending - Paid */}
+                {isPending && item.payment && (
                   <button className='sm:min-w-48 py-2 border rounded text-stone-50 bg-indigo-400'>
                     Paid
                   </button>
                 )}
 
-                {!item.cancelled && !item.payment && (
+                {/* Pending - Pay Online */}
+                {isPending && !item.payment && (
                   <button onClick={() => appointmentRazorpay(item._id)} className='text-sm text-stone-500 text-center sm:min-w-48 py-2 border rounded hover:bg-primary hover:text-black transition-all duration-300'>
                     Pay Online
                   </button>
                 )}
 
-                {!item.cancelled && (
+                {/* Pending - Cancel */}
+                {isPending && (
                   <div className='relative group sm:min-w-48'>
-
                     <button
                       onClick={() => handleCancelClick(item._id, item.payment)}
                       className='w-full text-sm text-stone-500 text-center py-2 border rounded hover:bg-red-500 hover:text-white transition-all duration-300'
@@ -203,30 +231,14 @@ const MyAppointments = () => {
                       Cancel Appointment
                     </button>
 
-                    {/* Tooltip — sirf paid appointment pe dikhega hover par */}
                     {item.payment && (
                       <div className='absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 bg-gray-800 text-white text-xs rounded-lg p-3 hidden group-hover:block z-10 shadow-lg'>
                         <p className='font-medium mb-1'>Refund Policy</p>
                         <p>✅ 4+ hrs before → <span className='text-green-400'>90% refund</span></p>
                         <p>⚠️ Within 4 hrs → <span className='text-yellow-400'>50% refund</span></p>
                         <p className='mt-1 text-gray-400 text-[10px]'>Credited in 3 business days</p>
-                        {/* Tooltip arrow */}
                         <div className='absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800'></div>
                       </div>
-                    )}
-
-                  </div>
-                )}
-
-                {item.cancelled && (
-                  <div className='text-sm text-center sm:min-w-48'>
-                    <button className='w-full py-2 border border-red-500 rounded text-red-600'>
-                      Appointment Cancelled
-                    </button>
-                    {item.refund && (
-                      <p className='text-xs text-green-600 mt-1'>
-                        Refund of ₹{item.refund.amount} initiated • 3 business days
-                      </p>
                     )}
                   </div>
                 )}

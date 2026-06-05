@@ -295,7 +295,7 @@ export const cancelAppointment = async (req, res) => {
         }
 
         // Cancel karo
-        await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true });
+        await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true  });
 
         // Doctor ka slot free karo
         const { docId, slotDate, slotTime } = appointmentData;
