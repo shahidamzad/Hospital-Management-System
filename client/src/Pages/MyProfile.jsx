@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useContext } from 'react'
-import { AppContext } from '../Context/appContext'
+import { AppContext } from '../Context/AppContext'
 import { assets } from '../assets/assets'
 import axios from 'axios'
 import { toast } from 'react-toastify'
@@ -102,15 +102,15 @@ const MyProfile = () => {
           {
             isEdit
               ? <select
-                  className='max-w-28 bg-gray-100'
-                  onChange={(e) => setUserData(prev => ({ ...prev, gender: e.target.value }))}
-                  value={userData.gender || 'not selected'}
-                >
-                  <option value="not selected">Not Selected</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
+                className='max-w-28 bg-gray-100'
+                onChange={(e) => setUserData(prev => ({ ...prev, gender: e.target.value }))}
+                value={userData.gender || 'not selected'}
+              >
+                <option value="not selected">Not Selected</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
               : <p className='text-gray-400'>{userData.gender || 'not selected'}</p>
           }
           <p className='font-medium'>Birthday</p>

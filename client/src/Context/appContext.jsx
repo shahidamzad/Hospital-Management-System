@@ -5,9 +5,9 @@ import { toast } from 'react-toastify'
 export const AppContext = createContext();
 
 
-const appContextProvider = (props) => {
+const AppContextProvider = (props) => {
 
-    const currencySymbol = '$'
+    const currencySymbol = '₹'
     const backendUrl = import.meta.env.VITE_BACKEND_URL
 
     const [doctors, setDoctors] = useState([])
@@ -73,4 +73,4 @@ const appContextProvider = (props) => {
     )
 }
 
-export default appContextProvider;
+export default AppContextProvider;

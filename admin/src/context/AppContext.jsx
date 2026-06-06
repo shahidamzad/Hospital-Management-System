@@ -5,7 +5,7 @@ export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
 
-    const currency = '$'
+    const currency = '₹'
 
     const calculateAge = (dob) => {
         if (!dob || dob === 'not selected') return 'N/A'

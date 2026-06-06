@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { AppContext } from '../Context/appContext';
+import { AppContext } from '../Context/AppContext';
 import { assets } from '../assets/assets';
 import RelatedDoctors from '../Components/RelatedDoctors';
 import { toast } from 'react-toastify';
@@ -25,11 +25,11 @@ const Appointment = () => {
     console.log(docInfo);
   }
   const getAvailableSlots = async () => {
-    if(!docInfo){
+    if (!docInfo) {
       return setDocSlots([])
     }
-    
-  
+
+
 
     // getting current date 
     let today = new Date()
@@ -124,8 +124,8 @@ const Appointment = () => {
   }, [doctors, docId]);
 
   useEffect(() => {
-    if(docInfo){
-    getAvailableSlots()
+    if (docInfo) {
+      getAvailableSlots()
     }
   }, [docInfo])
 

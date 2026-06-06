@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { AppContext } from '../Context/appContext'
+import { AppContext } from '../Context/AppContext'
 import { useNavigate } from 'react-router-dom'
 
 const RelatedDoctors = ({ docId, speciality }) => {

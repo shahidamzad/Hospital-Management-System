@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { AppContext } from '../Context/appContext.jsx'
+import { AppContext } from '../Context/AppContext.jsx'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import axios from 'axios'

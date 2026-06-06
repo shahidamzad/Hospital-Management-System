@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { AppContext } from '../Context/appContext';
+import { AppContext } from '../Context/AppContext';
 
 const Doctors = () => {
 

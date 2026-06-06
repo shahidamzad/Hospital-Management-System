@@ -28,7 +28,7 @@ app.use('/api/user', userRouter)
 
 // dummy api 
 app.get('/',(req,res)=>{
-    res.send('api Working')
+    res.send('Api working')
 })
 
 app.listen(port,()=> console.log('server is running',port ))

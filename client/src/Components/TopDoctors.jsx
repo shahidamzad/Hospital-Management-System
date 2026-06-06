@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 // import { doctors } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
-import { AppContext } from '../Context/appContext.jsx';
+import { AppContext } from '../Context/AppContext.jsx';
 
 const TopDoctors = () => {
 
