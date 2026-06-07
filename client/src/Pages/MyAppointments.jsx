@@ -102,7 +102,7 @@ const MyAppointments = () => {
       receipt: order.receipt,
       handler: async (response) => {
         try {
-          const { data } = await axios.post(backendUrl + '/api/user/verifyRazorpay', response, { headers: { token } })
+          const { data } = await axios.post(backendUrl + '/api/user/verify-Razorpay', response, { headers: { token } })
           if (data.success) {
             getUserAppointments()
             navigate('/my-appointments')
