@@ -1,6 +1,7 @@
 import React from 'react'
 import { assets } from '../assets/assets'
 import Footer from '../Components/Footer'
+import { Zap, Smartphone, Heart } from 'lucide-react'
 
 const About = () => {
   return (
@@ -23,22 +24,29 @@ const About = () => {
         <p>WHY <span className='text-gray-700 font-semibold  '> CHOOSE US</span> </p>
       </div>
 
-      <div className='flex flex-col md:flex-row mb-20 capitalize'>
-        <div className='border px-10 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-primary hover:text-white transition-all duration-300 text-gray-500 cursor-pointer'>
-          <b>EFFICIENCY:</b>
-          <p>Streamlined Appointment Scheduling That Fits Inti Yiur Busy Lifestyle.</p>
+      <div className='flex flex-col md:flex-row'>
+        <div className='border flex flex-col gap-4 px-10 py-10 text-sm text-gray-500 hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer group'>
+          <Zap size={24} className='text-primary group-hover:text-white' />
+          <p className='font-medium text-gray-700 group-hover:text-white'>Efficiency</p>
+          <p>Streamlined appointment scheduling that fits into your busy lifestyle — fast, simple, and reliable.</p>
         </div>
-        <div className='border px-10 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-primary hover:text-white transition-all duration-300 text-gray-500 cursor-pointer'>
-          <b>CONVENINECE:</b>
-          {/* Changed <P> to <p> below */}
-          <p>Access To network of trusted Healthcare Professionals in Your Area.</p>4</div>
-        <div className='border px-10 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-primary hover:text-white transition-all duration-300 text-gray-500 cursor-pointer'>
-          <b>PERSONALIZATION :</b>
-          {/* Changed <P> to <p> below */}
-          <p>Tailored recommendations and reminders to helps you stay on your health </p>
+
+
+        <div className='border flex flex-col gap-4 px-10 py-10 text-sm text-gray-500 hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer group'>
+          <Smartphone size={24} className='text-primary group-hover:text-white' />
+          <p className='font-medium text-gray-700 group-hover:text-white'>Convenience</p>
+          <p>Access a network of trusted healthcare professionals in your area, anytime and anywhere.</p>
         </div>
+
+
+        <div className='border flex flex-col gap-4 px-10 py-10 text-sm text-gray-500 hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer group'>
+          <Heart size={24} className='text-primary group-hover:text-white' />
+          <p className='font-medium text-gray-700 group-hover:text-white'>Personalization</p>
+          <p>Tailored recommendations and smart reminders to help you stay on top of your health journey.</p>
+        </div>
+
       </div>
-      
+
     </div>
   )
 }

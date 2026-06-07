@@ -1,24 +1,75 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { MapPin, Phone, Mail, Briefcase, ArrowRight } from 'lucide-react'
 
 const Contact = () => {
   return (
-    <div>
-      <div className='text-center text-2xl mt-10 text-gray-500'>
-        <p>CONTACT <span className='text-gray-700 font-semibold'>US</span></p>
-      </div>
-      <div className='my-10 flex flex-col justify-center md:flex-row gap-10 mb-28 text-sm'>
-        <img className='w-full md:max-w-[360px]' src={assets.contact_image} alt="" />
-        <div className='flex flex-col justify-center items-start gap-6 '>
-          <p className='font-semibold text-lg text-gray-700'>Our OFFICE</p>
-          <p className='text-gray-500'>54709 Willms Station <br />Suite 350 , Washhington, USA </p>
-          <p className='text-gray-500'>Tel : (415) 555-0123 <br /> Email : shahidamzad07@gmai.com </p>
-          <p className='font-semibold text-lg text-gray-600'>Careers at PRESCRIPTO </p>
-          <p className='text-gray-500'>Learn more about teams and job opening. </p>
-          <button className='border border-black px-8 py-4 text-sm hover:bg-primary hover:text-white transition-all duration-500'>Explore Jobs</button>
-        </div>
+    <div className='px-4 md:px-10'>
+
+      {/* Heading */}
+      <div className='text-center mt-12 mb-12'>
+        <p className='text-xs tracking-widest uppercase text-gray-400 mb-2'>
+          Reach out to us
+        </p>
+        <h2 className='text-3xl font-medium text-gray-800'>
+          Contact <span className='text-primary'>Us</span>
+        </h2>
       </div>
 
+      {/* Body */}
+      <div className='flex flex-col md:flex-row gap-14 mb-28 items-center'>
+
+        {/* Image */}
+        <img
+          className='w-full md:max-w-[420px] rounded-2xl object-cover'
+          src={assets.contact_image}
+          alt="Prescripto Office"
+        />
+
+        {/* Info */}
+        <div className='flex flex-col gap-7 flex-1'>
+
+          {/* Office */}
+          <div className='flex flex-col gap-2'>
+            <p className='text-xs tracking-widest uppercase text-gray-400'>Our office</p>
+            <p className='text-base font-medium text-gray-800'>Prescripto HQ</p>
+            <p className='flex items-start gap-2 text-sm text-gray-500'>
+              <MapPin size={15} className='mt-0.5 shrink-0 text-gray-400' />
+              Sadar hospital - Gopalganj, Bihar, India
+            </p>
+          </div>
+
+          {/* Contact details */}
+          <div className='flex flex-col gap-2'>
+            <p className='flex items-center gap-2 text-sm text-gray-500'>
+              <Phone size={15} className='text-gray-400' />
+              +1 (415) 555-0123
+            </p>
+            <p className='flex items-center gap-2 text-sm text-gray-500'>
+              <Mail size={15} className='text-gray-400' />
+              support@prescripto.com
+            </p>
+          </div>
+
+          <hr className='border-gray-100' />
+
+          {/* Careers */}
+          <div className='flex flex-col gap-2'>
+            <p className='text-xs tracking-widest uppercase text-gray-400'>Careers at Prescripto</p>
+            <p className='text-base font-medium text-gray-800'>Join our growing team</p>
+            <p className='text-sm text-gray-500 leading-relaxed'>
+              We're always looking for talented individuals passionate about improving healthcare.
+              Explore open roles across engineering, design, and operations.
+            </p>
+            <button className='mt-2 flex items-center gap-2 w-fit border border-primary text-primary px-6 py-3 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all duration-300'>
+              <Briefcase size={15} />
+              Explore open positions
+              <ArrowRight size={14} />
+            </button>
+          </div>
+
+        </div>
+      </div>
     </div>
   )
 }

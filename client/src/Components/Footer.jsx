@@ -9,7 +9,9 @@ const Footer = () => {
                 {/* -----left Section   */}
                 <div>
                     <img className='mb-5 w-40' src={assets.logo} alt="" />
-                    <p className='w-full md:w-1/2 text-gray-600 leading-6  '>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit nemo laudantium pariatur dolores facere obcaecati deleniti nostrum et dicta corporis sint inventore voluptas impedit dolorum, totam officiis harum minima aliquid, id aspernatur.</p>
+                    <p className='w-full md:w-1/2 text-gray-600 leading-6  '> A comprehensive hospital management system designed to streamline
+                        patient care, appointments, and administrative workflows —
+                        all in one secure platform.</p>
                 </div>
 
                 {/* -----center  Section   */}
@@ -27,8 +29,9 @@ const Footer = () => {
                 <div>
                     <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
                     <ul className='flex flex-col gap-2 text-gray-600'>
-                        <li>phone no.</li>
-                        <li>gamil@.com</li>
+                        <li>+1 (415) 555-0123</li>
+                        <li>support@prescripto.com</li>
+                        <li>GopalGanj, Bihar , India</li>
                     </ul>
 
                 </div>
@@ -37,7 +40,7 @@ const Footer = () => {
             <div>
                 <hr />
                 <p className="py-5 text-sm text-center flex items-center justify-center gap-2">
-                   copyright © {new Date().getFullYear()} All rights reserved |
+                    copyright © {new Date().getFullYear()} All rights reserved |
                     <a
                         href="https://github.com/shahidamzad"
                         target="_blank"
