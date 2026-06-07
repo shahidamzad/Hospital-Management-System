@@ -21,7 +21,7 @@ A three-panel healthcare platform where **patients book appointments**, **doctor
 [Prescripto - Book Appointment With Trusted Doctors](https://github.com/user-attachments/assets/0b00b871-b3df-4c9d-91b7-fd3447fd8402)
 =======
 <!-- STEP: GitHub pe README edit karo, neeche wali image drag & drop karo, jo link milega woh yahan paste karo -->
-Prescripto - Book Appointment With Trusted Doctors :-  https://hospital-management-system-git-main-sids-projects-a3f928eb.vercel.app/
+Prescripto - Book Appointment With Trusted Doctors
 
 
 </div>
