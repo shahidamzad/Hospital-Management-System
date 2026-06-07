@@ -17,7 +17,12 @@ A three-panel healthcare platform where **patients book appointments**, **doctor
 
 ---
 
+<<<<<<< HEAD
 ![Prescripto - Book Appointment With Trusted Doctors](https://github.com/user-attachments/assets/0b00b871-b3df-4c9d-91b7-fd3447fd8402)
+=======
+<!-- STEP: GitHub pe README edit karo, neeche wali image drag & drop karo, jo link milega woh yahan paste karo -->
+Prescripto - Book Appointment With Trusted Doctors :-  https://hospital-management-system-9r1o.vercel.app/
+>>>>>>> c17c5e44294bdc0f74c1ae063159c5fcf5076377
 
 </div>
 
@@ -61,6 +66,7 @@ All three share a single MongoDB database and communicate via a JWT-authenticate
 
 ### Patient App
 
+<<<<<<< HEAD
 **Home Page**
 ![Home Page](https://github.com/user-attachments/assets/0b00b871-b3df-4c9d-91b7-fd3447fd8402)
 
@@ -72,6 +78,29 @@ All three share a single MongoDB database and communicate via a JWT-authenticate
 
 **Razorpay Payment — Successful Transaction**
 ![Razorpay Payment](https://github.com/user-attachments/assets/2881b4e3-1dc3-4d01-b10f-7c7461cdef0c)
+=======
+<!-- STEP: Neeche teen images drag & drop karo GitHub README editor mein aur links replace karo -->
+
+**Home Page**
+
+<img width="1914" height="910" alt="image" src="https://github.com/user-attachments/assets/0b00b871-b3df-4c9d-91b7-fd3447fd8402" />
+
+
+**Doctors Listing — Browse by Speciality**
+
+<img width="1908" height="912" alt="image" src="https://github.com/user-attachments/assets/2e4a5442-9511-4953-83c9-ec131127c69a" />
+
+
+**My Appointments — Payment & Status Tracking**
+
+<img width="1918" height="911" alt="image" src="https://github.com/user-attachments/assets/ce08ad48-c61b-4f4f-8d92-cc948701c33d" />
+
+
+**Razorpay Payment — Successful Transaction**
+
+<img width="1909" height="919" alt="image" src="https://github.com/user-attachments/assets/2881b4e3-1dc3-4d01-b10f-7c7461cdef0c" />
+
+>>>>>>> c17c5e44294bdc0f74c1ae063159c5fcf5076377
 
 ---
 
@@ -79,7 +108,13 @@ All three share a single MongoDB database and communicate via a JWT-authenticate
 
 | Doctor Dashboard | Admin Dashboard |
 |---|---|
+<<<<<<< HEAD
 | ![Doctor Dashboard](https://github.com/user-attachments/assets/REPLACE_WITH_DOCTOR_DASHBOARD_IMAGE_LINK) | ![Admin Dashboard](https://github.com/user-attachments/assets/REPLACE_WITH_ADMIN_DASHBOARD_IMAGE_LINK) |
+=======
+| (<img width="1568" height="759" alt="image" src="https://github.com/user-attachments/assets/ee992356-0792-4ed5-be25-2dc9ff56e417" />
+) | (<img width="1568" height="746" alt="image" src="https://github.com/user-attachments/assets/b0672438-159a-4c93-84ff-40e542fb9248" />
+) |
+>>>>>>> c17c5e44294bdc0f74c1ae063159c5fcf5076377
 
 ---
 
@@ -534,4 +569,8 @@ Licensed under the [MIT License](LICENSE).
 
 Developed by **Shahid Amzad**
 
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> c17c5e44294bdc0f74c1ae063159c5fcf5076377
